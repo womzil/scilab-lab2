@@ -1,13 +1,20 @@
 // Test comment
-deff('[f, g, ind] = f1(x, ind)', 'f = x^4 + 5000 * cos(x), g = 4 * x.^3 - 5000 * sin(x)');
+deff('[f, g, ind] = fun(x, ind)', 'f = x.^4 + 5000 * cos(x), g = 4 * x.^3 - 5000 * sin(x)');
 
-[f, xopt1] = optim(f1, -10)
+[f, xopt1] = optim(fun, -10)
 
-[f, xopt2] = optim(f1, 3)
+[f, xopt2] = optim(fun, -3)
 
-[f, xopt3] = optim(f1, 10)
+[f, xopt3] = optim(fun, 3)
 
-x = -20: 0.01: 20;
+[f, xopt4] = optim(fun, 10)
 
-plot(x, f1(x), '-')
-//plot(x, f1(x), '-', xopt1, f1(xopt1), 'r.o', xopt2, f1(xopt2), 'g.*', xopt3, f1(xopt3), 'b.+')
+x = -10: 0.01: 10;
+
+plot(..
+    x, fun(x), '-', ..
+    xopt1, fun(xopt1), 'r.o', ..
+    xopt2, fun(xopt2), 'g.*', ..
+    xopt3, fun(xopt3), 'b.+', ..
+    xopt4, fun(xopt4), 'y.o' ..
+)
