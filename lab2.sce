@@ -1,6 +1,12 @@
-// Test comment
-deff('[f, g, ind] = fun(x, ind)', 'f = x.^4 + 5000 * cos(x), g = 4 * x.^3 - 5000 * sin(x)');
+// Two dots (..) allow code execution in the next line
 
+// Defines a function called "fun"
+deff(..
+	'[f, g, ind] = fun(x, ind)', ..
+	'f = x.^4 + 5000 * cos(x), g = 4 * x.^3 - 5000 * sin(x)'..
+);
+
+// Optimization, searching for the minimum points
 [f, xopt1] = optim(fun, -10)
 
 [f, xopt2] = optim(fun, -3)
